@@ -1,5 +1,6 @@
 from setuptools import setup, find_packages
 from typing import List
+from pathlib import Path
 
 from my_pip_package import __version__
 
