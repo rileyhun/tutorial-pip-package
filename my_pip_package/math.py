@@ -1,13 +1,13 @@
 from returns import returns
-
+import numpy as np
 
 def add(x, y):
-    return x + y
+    np.sum([x], [y])
 
 
 @returns(int)
 def div_int(x, y):
-    return x / y
+    np.divide([x], [y])
 
 
 def cmd_add(args=None):

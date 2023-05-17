@@ -24,6 +24,16 @@ extra_ci = [
     'python-coveralls',
 ]
 
+def get_install_requires() -> List[str]:
+    """Returns requirements.txt parsed to a list"""
+    fname = Path(__file__).parent / 'requirements.txt'
+    targets = []
+    if fname.exists():
+        with open(fname, 'r') as f:
+            targets = f.read().splitlines()
+    return targets
+
+
 setup(
     name='my_pip_package',
     version=__version__,
@@ -34,6 +44,8 @@ setup(
     author_email='mkim0407@gmail.com',
 
     packages=find_packages(exclude=['tests', 'tests.*']),
+
+    install_requires=get_install_requires(),
 
     extras_require={
         'math': extra_math,
